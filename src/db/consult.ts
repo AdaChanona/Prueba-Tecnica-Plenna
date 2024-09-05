@@ -16,6 +16,9 @@ const ConsultaSchema: Schema = new Schema({
 
 export const ConsultModel = mongoose.model<IConsulta>('Consulta', ConsultaSchema);
 
+//Todas las consultas
+export const getAllConsult = ()=>ConsultModel.find();
+
 //Crear consulta
 export const createConsult = (values: Record<string,any>) => new ConsultModel(values).save().then((consult)=>consult.toObject());
 

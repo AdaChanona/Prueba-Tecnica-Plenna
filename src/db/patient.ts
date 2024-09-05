@@ -16,6 +16,9 @@ const PatientSchema: Schema = new Schema({
 
 export const PatientModel = mongoose.model<IPatient>('Paciente', PatientSchema);
 
+//Todos los pacientes
+export const getAllPatients = ()=>PatientModel.find()
+
 //Crear paciente
 export const createPatient = (values: Record<string,any>) => new PatientModel(values).save().then((patient)=>patient.toObject());
 
