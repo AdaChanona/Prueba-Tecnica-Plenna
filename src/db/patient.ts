@@ -14,19 +14,19 @@ const PatientSchema: Schema = new Schema({
     historialMedico: [{ type: Schema.Types.ObjectId, ref: 'Consulta' }]
 });
 
-export const PatientModel = mongoose.model<IPatient>('Paciente', PatientSchema);
+export const Paciente = mongoose.model<IPatient>('Paciente', PatientSchema);
 
 //Todos los pacientes
-export const getAllPatients = ()=>PatientModel.find()
+export const getAllPatients = ()=>Paciente.find()
 
 //Crear paciente
-export const createPatient = (values: Record<string,any>) => new PatientModel(values).save().then((patient)=>patient.toObject());
+export const createPatient = (values: Record<string,any>) => new Paciente(values).save().then((patient)=>patient.toObject());
 
 //Leer info del paciente con ID
-export const getPatientById = (id:string) => PatientModel.findById(id);
+export const getPatientById = (id:string) => Paciente.findById(id);
 
 //Actualizar un paciente con ID
-export const updatePatientById = (id:string, values: Record<string,any>) => PatientModel.findByIdAndUpdate(id, values);
+export const updatePatientById = (id:string, values: Record<string,any>) => Paciente.findByIdAndUpdate(id, values);
 
 //Eliminar UN paciente con ID
-export const deletePatientById = (id:string) => PatientModel.findOneAndDelete({_id : id});
+export const deletePatientById = (id:string) => Paciente.findOneAndDelete({_id : id});

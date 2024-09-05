@@ -32,3 +32,16 @@
 {"level":"info","message":"DELETE /consult/66d966979d6478aff034c73d"}
 {"level":"info","message":"GET /consult"}
 {"level":"info","message":"GET /patients"}
+{"level":"info","message":"POST /consult/create"}
+{"level":"info","message":"GET /patients"}
+{"level":"info","message":"GET /consult"}
+{"level":"info","message":"PUT /patients/66d95eb6fcc1ea6b07a15127"}
+{"level":"info","message":"GET /patients"}
+{"level":"info","message":"GET /patients"}
+{"level":"info","message":"POST /consult/create"}
+{"level":"info","message":"GET /consult"}
+{"level":"info","message":"GET /patients"}
+{"level":"info","message":"DELETE /patients/66d95eb6fcc1ea6b07a15127"}
+{"level":"info","message":"GET /patients"}
+{"level":"info","message":"POST /patients/create"}
+{"level":"info","message":"GET /consult"}

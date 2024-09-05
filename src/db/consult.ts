@@ -11,22 +11,22 @@ const ConsultaSchema: Schema = new Schema({
     fecha: { type: Date, required: true },
     doctor: { type: String, required: true },
     descripcion: { type: String, required: true },
-    paciente: { type: Schema.Types.ObjectId, ref: 'Paciente', required: true }
+    paciente: { type: Schema.Types.ObjectId, ref: 'Pciente', required: true }
 });
 
-export const ConsultModel = mongoose.model<IConsulta>('Consulta', ConsultaSchema);
+export const Consulta = mongoose.model<IConsulta>('Consulta', ConsultaSchema);
 
 //Todas las consultas
-export const getAllConsult = ()=>ConsultModel.find();
+export const getAllConsult = ()=>Consulta.find();
 
 //Crear consulta
-export const createConsult = (values: Record<string,any>) => new ConsultModel(values).save().then((consult)=>consult.toObject());
+export const createConsult = (values: Record<string,any>) => new Consulta(values).save().then((consult)=>consult.toObject());
 
 //Leer info de la consulta con ID
-export const getConsultById = (id:string) => ConsultModel.findById(id);
+export const getConsultById = (id:string) => Consulta.findById(id);
 
 //Actualizar una consulta con ID
-export const updateConsultById = (id:string, values: Record<string,any>) => ConsultModel.findByIdAndUpdate(id, values);
+export const updateConsultById = (id:string, values: Record<string,any>) => Consulta.findByIdAndUpdate(id, values);
 
 //Eliminar una consulta con ID
-export const deleteConsultById = (id:string) => ConsultModel.findOneAndDelete({_id : id});
+export const deleteConsultById = (id:string) => Consulta.findOneAndDelete({_id : id});
