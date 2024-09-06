@@ -1,0 +1,58 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: prueba-tecnica-plenna-deployment
+  labels:
+    app: prueba-tecnica-plenna
+spec:
+  replicas: 3  # Number of pod replicas
+  selector:
+    matchLabels:
+      app: prueba-tecnica-plenna
+  template:
+    metadata:
+      labels:
+        app: prueba-tecnica-plenna
+    spec:
+      containers:
+      - name: prueba-tecnica-plenna
+        image: prueba_tecnica_plenna:latest # Update with the image name when pushed to a container registry
+        ports:
+        - containerPort: 3000
+        env:
+        - name: NODE_ENV
+          value: "production"
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "500m"
+          limits:
+            memory: "512Mi"
+            cpu: "1"
+        livenessProbe:
+          httpGet:
+            path: /healthz # Your health endpoint (configure it in the app)
+            port: 3000
+          initialDelaySeconds: 30
+          periodSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /readiness # Readiness endpoint (configure it in the app)
+            port: 3000
+          initialDelaySeconds: 30
+          periodSeconds: 10
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: prueba-tecnica-plenna-service
+spec:
+  type: LoadBalancer  # Expose the service externally
+  selector:
+    app: prueba-tecnica-plenna
+  ports:
+    - protocol: TCP
+      port: 80  # External port
+      targetPort: 3000  # Internal port inside the container
+
+
