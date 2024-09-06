@@ -1,4 +1,4 @@
-```markdown
+
 # Prueba Técnica Plenna
 
 ## Características
@@ -64,5 +64,3 @@ Puedes configurar la aplicación generando los archivos `.env` y `env.ts` para d
 ## Autor
 Ada Chanona   
 ```
-
-Este `README.md` cubre los aspectos esenciales para comenzar con la aplicación. Puedes personalizarlo según las necesidades específicas de tu proyecto.
