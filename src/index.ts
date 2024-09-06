@@ -15,9 +15,8 @@ app.use(cors({
 }))
 
 app.use(bodyParser.json());
-
+app.use(errorHandler);
 app.use(requestLogger);
-//app.use(errorHandler);
 
 const server = http.createServer(app)
 

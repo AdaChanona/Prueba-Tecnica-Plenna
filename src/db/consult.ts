@@ -11,7 +11,7 @@ const ConsultaSchema: Schema = new Schema({
     fecha: { type: Date, required: true },
     doctor: { type: String, required: true },
     descripcion: { type: String, required: true },
-    paciente: { type: Schema.Types.ObjectId, ref: 'Pciente', required: true }
+    paciente: { type: Schema.Types.ObjectId, ref: 'Paciente', required: true }
 });
 
 export const Consulta = mongoose.model<IConsulta>('Consulta', ConsultaSchema);

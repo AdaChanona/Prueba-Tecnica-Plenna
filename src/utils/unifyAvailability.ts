@@ -1,5 +1,6 @@
 interface Slot {
-    time: string;
+    sourceEvent: string;
+    dateTime: string;
 }
 
 interface SlotDate {
@@ -20,12 +21,24 @@ export const unifyAvailability = (doctorAvailabilities: DoctorAvailability[]): S
             if (!unifiedSlots[slotdate.date]) {
                 unifiedSlots[slotdate.date] = [];
             }
-            unifiedSlots[slotdate.date] = unifiedSlots[slotdate.date].concat(slotdate.slots);
+
+            // Filter out slots with undefined dateTime and keep the original Slot structure
+            const validSlots = slotdate.slots
+                ? slotdate.slots.filter(slot => slot.dateTime !== undefined && slot.dateTime !== null)
+                : [];
+
+            unifiedSlots[slotdate.date] = unifiedSlots[slotdate.date].concat(validSlots);
         });
     });
 
     return Object.entries(unifiedSlots).map(([date, slots]) => ({
         date,
-        slots: slots.sort((a, b) => a.time.localeCompare(b.time))
+        // Ensure all slots have valid dateTime and sort accordingly
+        slots: slots.sort((a, b) => {
+            if (a.dateTime && b.dateTime) {
+                return a.dateTime.localeCompare(b.dateTime);
+            }
+            return 0; // Treat undefined or null dateTime as equal
+        })
     }));
 };

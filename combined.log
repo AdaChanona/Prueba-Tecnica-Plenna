@@ -45,3 +45,14 @@
 {"level":"info","message":"GET /patients"}
 {"level":"info","message":"POST /patients/create"}
 {"level":"info","message":"GET /consult"}
+{"level":"info","message":"GET /consult"}
+{"level":"info","message":"POST /consult/create"}
+{"level":"info","message":"POST /consult/create"}
+{"level":"info","message":"GET /doctors/availability"}
+{"level":"info","message":"POST /consult/create"}
+{"level":"info","message":"POST /consult/create"}
+{"level":"info","message":"GET /doctors/availability"}
+{"level":"info","message":"GET /doctors/availability"}
+{"level":"info","message":"GET /doctors/availability"}
+{"level":"info","message":"GET /doctors/availability"}
+{"level":"info","message":"GET /doctors/availability"}
