@@ -62,5 +62,4 @@ La aplicación se ejecutará en `http://localhost:8080`.
 Puedes configurar la aplicación generando los archivos `.env` y `env.ts` para definir variables de entorno y otros parámetros de configuración.
 
 ## Autor
-Ada Chanona   
-```
+Ada Chanona
