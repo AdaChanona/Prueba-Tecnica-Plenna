@@ -8,7 +8,7 @@ import { errorHandler } from './middlewares/errorHandler';
 import { requestLogger } from './middlewares/logger';
 import mongoose from 'mongoose';
 
-const app = express();
+export const app = express();
 
 app.use(cors({
     credentials: true,
