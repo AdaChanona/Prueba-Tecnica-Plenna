@@ -72,13 +72,17 @@ La aplicación se ejecutará en `http://localhost:8080`.
 
 ## Configuración
 Puedes configurar la aplicación generando los archivos `.env` y `env.ts` para definir variables de entorno y otros parámetros de configuración.
+
 **Estructura de .env**
+
  ```bash
    PORT=8080,
    HOST='localhost',
    MONGO_URL= 'url-mongo-db',
  ```
+
 **Estructura de env.ts**
+
  ```bash
    import { z } from "zod";
 
